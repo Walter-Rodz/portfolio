@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Impact&family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-image: url('43hTSpu.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-right: 14vw; /* Offsets whole menu slightly to the left of true center */
+            font-family: 'Montserrat', 'Impact', sans-serif;
+            overflow: hidden;
+        }
+
+        .p5-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .p5-text-group {
+            display: flex;
+            flex-wrap: wrap;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .p5-text-group:hover {
+            transform: scale(1.08) rotate(-2deg);
+        }
+
+        /* Styling individual letters */
+        .p5-letter {
+            display: inline-block;
+            font-size: 2.6rem;    /* Increased size slightly (up from 2rem) */
+            font-weight: 900;
+            font-style: italic;
+            color: #111;
+            background-color: #fff;
+            padding: 3px 10px;    /* Scaled padding to match larger font */
+            margin: -2px;
+            border: 2.5px solid #000;
+            text-transform: uppercase;
+            box-shadow: 3.5px 3.5px 0px #000;
+            user-select: none;
+        }
+
+        /* Alternating black & white Persona 5 tag effects */
+        .p5-letter:nth-child(odd) {
+            background-color: #ffffff;
+            color: #000000;
+            transform: skewX(-12deg) rotate(-3deg);
+        }
+
+        .p5-letter:nth-child(even) {
+            background-color: #000000;
+            color: #ffffff;
+            transform: skewX(-8deg) rotate(4deg) translateY(-4px);
+        }
+
+        /* Specific rotation tweaks to mimic chaotic hand-drawn layout */
+        .p5-letter:nth-child(3n) {
+            transform: skewX(-15deg) rotate(-6deg) scale(1.05);
+        }
+
+        .p5-letter:nth-child(5n) {
+            transform: skewX(-6deg) rotate(5deg) translateY(3px);
+        }
+
+        .p5-space {
+            width: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="p5-menu">
+        <a href="#about" class="p5-text-group">
+            <span class="p5-letter">A</span>
+            <span class="p5-letter">B</span>
+            <span class="p5-letter">O</span>
+            <span class="p5-letter">U</span>
+            <span class="p5-letter">T</span>
+            <span class="p5-space"></span>
+            <span class="p5-letter">M</span>
+            <span class="p5-letter">E</span>
+        </a>
+
+        <a href="#resume" class="p5-text-group">
+            <span class="p5-letter">E</span>
+            <span class="p5-letter">X</span>
+            <span class="p5-letter">P</span>
+            <span class="p5-letter">E</span>
+            <span class="p5-letter">R</span>
+            <span class="p5-letter">I</span>
+            <span class="p5-letter">E</span>
+            <span class="p5-letter">N</span>
+            <span class="p5-letter">C</span>
+            <span class="p5-letter">E</span>
+        </a>
+
+        <a href="#about" class="p5-text-group">
+            <span class="p5-letter">S</span>
+            <span class="p5-letter">K</span>
+            <span class="p5-letter">I</span>
+            <span class="p5-letter">L</span>
+            <span class="p5-letter">L</span>
+            <span class="p5-letter">S</span>
+        </a>
+
+        <a href="#resume" class="p5-text-group">
+            <span class="p5-letter">P</span>
+            <span class="p5-letter">R</span>
+            <span class="p5-letter">O</span>
+            <span class="p5-letter">J</span>
+            <span class="p5-letter">E</span>
+            <span class="p5-letter">C</span>
+            <span class="p5-letter">T</span>
+            <span class="p5-letter">S</span>
+        </a>
+
+        <a href="#about" class="p5-text-group">
+            <span class="p5-letter">C</span>
+            <span class="p5-letter">O</span>
+            <span class="p5-letter">N</span>
+            <span class="p5-letter">T</span>
+            <span class="p5-letter">A</span>
+            <span class="p5-letter">C</span>
+            <span class="p5-letter">T</span>
+        </a>
+    </div>
+
+</body>
+</html>

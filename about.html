@@ -15,36 +15,100 @@
             min-height: 100vh;
             margin: 0;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
+            padding-right: 5vw; 
             font-family: 'Montserrat', sans-serif;
-            color: #fff;
+            overflow-x: hidden;
         }
 
-        .content-box {
-            background: rgba(0, 0, 0, 0.85);
-            padding: 30px;
-            border: 3px solid #fff;
-            max-width: 600px;
-            text-align: center;
+        
+        .p5-black-box {
+            background-color: #000000;
+            border: 4px solid #ffffff;
+            padding: 45px 55px; 
+            transform: skewX(-14deg) rotate(-6deg);
+            box-shadow: 8px 8px 0px #d90000;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 650px;
+}
+
+        .p5-item-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            min-height: 420px;
         }
 
-        .back-link {
-            color: #fff;
-            text-decoration: underline;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 20px;
+        /* Larger Header Tag */
+        .p5-header {
+            background-color: #d90000;
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 900;
+            font-style: italic;
+            padding: 6px 16px;
+            margin-top: 0;           
+            margin-bottom: 8px;      
+            letter-spacing: 1.5px;
+            border: 3px solid #000;
+        }
+
+        /* Larger Item Text */
+        .p5-item {
+            color: #ffffff;
+            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin: 0;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;       
+            word-break: break-word;
+        }
+
+        /* Larger Back Link Button */
+        .p5-back-btn {
+            margin-top: 15PX;
+            color: #ff3333;
+            text-decoration: none;
+            font-size: 2.5rem; 
+            font-weight: 900;
+            font-style: italic;
+            transition: transform 0.1s ease-in-out;
+            align-self: flex-start;
+        }
+
+        .p5-back-btn:hover {
+            transform: scale(1.05);
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
 
-    <div class="content-box">
-        <h1>ABOUT ME</h1>
-        <p>Welcome! Here is where you can write your bio, background, and interests.</p>
-        <a href="index.html" class="back-link">← Back to Main Menu</a>
+    <div class="p5-black-box">
+        <div class="p5-item-container">
+        <div class="p5-header">ABOUT ME</div>
+            <div class="p5-item">
+                </span> Blah Blah Blah Blagh Blah Blah Blah BlahBlah Blah Blah Blah Blah
+                Blahdghdgsudwhuegyusdghuydfgdyhfgv
+                adewdqwdsadcsadsadsa
+                wqwdsadsdasdasdsadasdsad
+                sadsadasdasdsadsadasdsadsa
+                asdasdsadasdasdsadasdasdasdsa
+                asdasdasdasdasdsadsadasdasdsas
+
+
+            </div>
+
+            <a href="index (1).html" class="p5-back-btn">← RETURN TO MAIN MENU</a>
+        </div>
     </div>
 
 </body>

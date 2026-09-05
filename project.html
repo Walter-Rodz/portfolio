@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>Projects - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -15,37 +15,270 @@
             min-height: 100vh;
             margin: 0;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            padding: 0 4vw;
             font-family: 'Montserrat', sans-serif;
             color: #fff;
+            overflow: hidden;
+            box-sizing: border-box;
         }
 
-        .content-box {
-            background: rgba(0, 0, 0, 0.85);
-            padding: 30px;
-            border: 3px solid #fff;
-            max-width: 600px;
-            text-align: center;
+        /* Left Side: Projects List (Expanded) */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 480px;
+            z-index: 2;
         }
 
+        .project-item {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            color: #000;
+            border: 4px solid #000;
+            padding: 14px 24px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-style: italic;
+            font-size: 1.8rem;
+            box-shadow: 6px 6px 0px #fff;
+            transition: all 0.15s ease-in-out;
+            user-select: none;
+        }
+
+        /* Persona 5 skewed cuts */
+        .project-item:nth-child(odd) {
+            transform: skewX(-12deg) rotate(-1deg);
+        }
+
+        .project-item:nth-child(even) {
+            transform: skewX(-8deg) rotate(2deg);
+            background-color: #fff;
+            color: #000;
+            box-shadow: 6px 6px 0px #000;
+        }
+
+        /* Hover & Active States */
+        .project-item:hover{
+            background: #000;
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .project-item.active
+        {
+            background: #d80000;
+            color: #fff;
+            transform: skewX(-12deg) translateY(-4px) scale(1.05);
+            box-shadow: 6px 6px 0px #000;
+        }
+
+        /* Right Section Wrapper */
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            z-index: 2;
+        }
+
+        /* Video Container Placed Above */
+        .video-container {
+            width: 580px;
+            height: 300px;
+            background: #000;
+            border: 5px solid #fff;
+            box-shadow: 8px 8px 0px #000;
+            transform: translateY(-30px)skewX(-6deg) rotate(-1deg);
+            overflow: hidden;
+            margin-bottom: -10px; /* Overlaps slightly with the description box */
+            z-index: 3;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Shifted Down & Left Persona 5 Angled Info Box */
+        .details-container {
+            position: relative;
+            width: 650px;
+            min-height: 380px;
+            background: #000;
+            border: 5px solid #fff;
+            padding: 45px;
+            /* Moves the box diagonally down and to the left */
+            transform: translate(-80px, 20px) skewX(-6deg) rotate(2deg);
+            box-shadow: -12px 14px 0px #d80000;
+            z-index: 2;
+            box-sizing: border-box;
+        }
+
+        .details-content {
+            transform: skewX(6deg); /* Counter-skew text so it stays readable */
+        }
+
+        .project-title {
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            font-style: italic;
+            margin: 0 0 12px 0;
+            color: #fff;
+            background: #d80000;
+            display: inline-block;
+            padding: 6px 18px;
+            transform: rotate(-2deg);
+        }
+
+        .project-category {
+            font-size: 1.2rem;
+            color: #ff3333;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .project-description {
+            font-size: 1.35rem;
+            line-height: 1.6;
+            color: #eee;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .tech-tag {
+            background: #fff;
+            color: #000;
+            padding: 6px 14px;
+            font-size: 1.05rem;
+            font-weight: 900;
+            transform: skewX(-10deg);
+        }
+
+        /* Navigation Links */
         .back-link {
             color: #fff;
-            text-decoration: underline;
+            background: #000;
+            text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            margin-top: 20px;
+            padding: 12px 22px;
+            font-size: 1.1rem;
+            border: 3px solid #fff;
+            text-transform: uppercase;
+            font-style: italic;
+            transition: 0.2s;
+        }
+
+        .back-link:hover {
+            background: #d80000;
+            color: #fff;
+        }
+
+        .nav-footer {
+            position: absolute;
+            bottom: 30px;
+            left: 4vw;
         }
     </style>
 </head>
 <body>
 
-    <div class="content-box">
-        <h1>ABOUT ME</h1>
-        <p>Welcome! Here is where you can write your bio, background, and interests.</p>
+    <div class="projects-list">
+        <div class="project-item active" onclick="showProject(0, this)">Celeste</div>
+        <div class="project-item" onclick="showProject(1, this)">Life Stone Engine</div>
+    </div>
+
+    <div class="right-section">
+        
+        <div class="video-container">
+            <video id="proj-video" autoplay loop muted playsinline>
+                <source src="Assets/CelesteVideo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="details-container">
+            <div class="details-content">
+                <h2 id="proj-title" class="project-title">Celeste</h2>
+                <div id="proj-category" class="project-category">// Mobile Application</div>
+                <p id="proj-desc" class="project-description">A high-performance mobile application designed with custom state management and smooth animated UI components inspired by JRPGs.</p>
+                
+                <div id="proj-tech" class="project-tech">
+                    <span class="tech-tag">React Native</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Redux</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="nav-footer">
         <a href="index (1).html" class="back-link">← Back to Main Menu</a>
     </div>
+
+    <script>
+        // Project Data Array with Video Links
+        const projects = [
+            {
+                title: "Celeste",
+                category: "// Mobile Application",
+                desc: "A high-performance mobile application designed with custom state management and smooth animated UI components inspired by JRPGs.",
+                tech: ["React Native", "TypeScript", "Redux"],
+                video: "2025-11-08 20-35-10.mp4"
+            },
+            {
+                title: "LIFE STONE ENGINE",
+                category: "// Game Development",
+                desc: "A custom 2D WebGL rendering engine built for browser-based games, featuring real-time light rendering and physics calculation.",
+                tech: ["WebGL", "JavaScript", "HTML5 Canvas"],
+                video: "2025-11-08 20-35-10.mp4"
+            },
+        ];
+
+        // Function to update the right side content and video when clicking an item
+        function showProject(index, element) {
+            // Update Active class styling
+            document.querySelectorAll('.project-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+
+            // Update Panel Text
+            const selected = projects[index];
+            document.getElementById('proj-title').innerText = selected.title;
+            document.getElementById('proj-category').innerText = selected.category;
+            document.getElementById('proj-desc').innerText = selected.desc;
+
+            // Update Video Source
+            const videoElem = document.getElementById('proj-video');
+            if (selected.video && videoElem.src !== selected.video) {
+                videoElem.src = selected.video;
+                videoElem.play();
+            }
+
+            // Update Tech Tags
+            const techContainer = document.getElementById('proj-tech');
+            techContainer.innerHTML = '';
+            selected.tech.forEach(t => {
+                const tag = document.createElement('span');
+                tag.className = 'tech-tag';
+                tag.innerText = t;
+                techContainer.appendChild(tag);
+            });
+        }
+    </script>
 
 </body>
 </html>

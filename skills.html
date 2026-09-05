@@ -92,21 +92,12 @@
             font-size: 2.5rem;
             text-transform: uppercase;
             font-style: italic;
-            margin: 0 0 8px 0;
+            margin: 0 0 25px 0;
             color: #fff;
             background: #d80000;
             display: inline-block;
             padding: 4px 16px;
             transform: rotate(-2deg);
-        }
-
-        .category-subtitle {
-            font-size: 1.1rem;
-            color: #ff3333;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            margin-bottom: 25px;
-            font-style: italic;
         }
 
         /* Individual Skill Item Rows */
@@ -118,7 +109,6 @@
 
         .skill-row {
             display: flex;
-            justify-content: space-between;
             align-items: center;
             background: rgba(255, 255, 255, 0.08);
             border-left: 5px solid #d80000;
@@ -132,7 +122,6 @@
             font-style: italic;
             text-transform: uppercase;
         }
-
 
         /* Navigation Footer Link */
         .nav-footer {
@@ -175,10 +164,9 @@
         <div class="content-box">
             <div class="box-inner">
                 <h1 id="cat-title" class="category-title">FRONTEND</h1>
-                <div id="cat-sub" class="category-subtitle">// User Interface & Design</div>
 
                 <div id="skills-container" class="skill-list">
-                    </div>
+                </div>
             </div>
         </div>
 
@@ -193,32 +181,29 @@
         const skillCategories = [
             {
                 title: "FRONTEND",
-                subtitle: "// User Interface & Design",
                 skills: [
-                    { name: "HTML5 / CSS3"},
-                    { name: "JavaScript (ES6+)"},
-                    { name: "React / Next.js"},
-                    { name: "Tailwind CSS"}
+                    { name: "HTML5 / CSS3" },
+                    { name: "JavaScript (ES6+)" },
+                    { name: "React / Next.js" },
+                    { name: "Tailwind CSS" }
                 ]
             },
             {
                 title: "BACKEND",
-                subtitle: "// Server & Databases",
                 skills: [
-                    { name: "Node.js / Express", level: "Lv. 78 • Proficient" },
-                    { name: "Python", level: "Lv. 82 • Advanced" },
-                    { name: "PostgreSQL / MongoDB", level: "Lv. 75 • Proficient" },
-                    { name: "REST APIs", level: "Lv. 88 • Advanced" }
+                    { name: "Node.js / Express" },
+                    { name: "Python" },
+                    { name: "PostgreSQL / MongoDB" },
+                    { name: "REST APIs" }
                 ]
             },
             {
                 title: "TOOLS & UI",
-                subtitle: "// Workflow & Graphics",
                 skills: [
-                    { name: "Git / GitHub"},
-                    { name: "Figma / UI Design"},
-                    { name: "Docker"},
-                    { name: "Webpack / Vite"}
+                    { name: "Git / GitHub" },
+                    { name: "Figma / UI Design" },
+                    { name: "Docker" },
+                    { name: "Webpack / Vite" }
                 ]
             }
         ];
@@ -227,7 +212,6 @@
         function renderSkills(categoryIndex) {
             const category = skillCategories[categoryIndex];
             document.getElementById('cat-title').innerText = category.title;
-            document.getElementById('cat-sub').innerText = category.subtitle;
 
             const container = document.getElementById('skills-container');
             container.innerHTML = '';
@@ -235,10 +219,7 @@
             category.skills.forEach(skill => {
                 const row = document.createElement('div');
                 row.className = 'skill-row';
-                row.innerHTML = `
-                    <span class="skill-name">${skill.name}</span>
-                    <span class="skill-level">${skill.level}</span>
-                `;
+                row.innerHTML = `<span class="skill-name">${skill.name}</span>`;
                 container.appendChild(row);
             });
         }

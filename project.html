@@ -68,8 +68,7 @@
             border-color: #fff;
         }
 
-        .project-item.active
-        {
+        .project-item.active {
             background: #d80000;
             color: #fff;
             transform: skewX(-12deg) translateY(-4px) scale(1.05);
@@ -84,23 +83,24 @@
             z-index: 2;
         }
 
-        /* Video Container Placed Above */
+        /* Video/GIF Container Placed Above */
         .video-container {
             width: 580px;
             height: 300px;
             background: #000;
             border: 5px solid #fff;
             box-shadow: 8px 8px 0px #000;
-            transform: translateY(-30px)skewX(-6deg) rotate(-1deg);
+            transform: translateY(-30px) skewX(-6deg) rotate(-1deg);
             overflow: hidden;
             margin-bottom: -10px; /* Overlaps slightly with the description box */
             z-index: 3;
         }
 
-        .video-container video {
+        .media-display {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         /* Shifted Down & Left Persona 5 Angled Info Box */
@@ -111,7 +111,6 @@
             background: #000;
             border: 5px solid #fff;
             padding: 45px;
-            /* Moves the box diagonally down and to the left */
             transform: translate(-80px, 20px) skewX(-6deg) rotate(2deg);
             box-shadow: -12px 14px 0px #d80000;
             z-index: 2;
@@ -147,7 +146,7 @@
             font-size: 1.35rem;
             line-height: 1.6;
             color: #eee;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-weight: bold;
         }
 
@@ -155,7 +154,7 @@
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .tech-tag {
@@ -165,6 +164,37 @@
             font-size: 1.05rem;
             font-weight: 900;
             transform: skewX(-10deg);
+        }
+
+        /* Dynamic Links Styling - Red by default, White on Hover */
+        .project-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            display: inline-block;
+            background: #d80000; /* Red base background */
+            color: #fff;        /* White text */
+            text-decoration: none;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 1rem;
+            padding: 8px 18px;
+            border: 3px solid #fff;
+            transform: skewX(-10deg);
+            box-shadow: 4px 4px 0px #000;
+            transition: all 0.15s ease-in-out;
+            text-transform: uppercase;
+        }
+
+        .action-btn:hover {
+            background: #fff;    /* Flips to white background */
+            color: #000;        /* Black text */
+            border-color: #000;
+            box-shadow: 4px 4px 0px #d80000;
         }
 
         /* Navigation Links */
@@ -198,17 +228,13 @@
 
     <div class="projects-list">
         <div class="project-item active" onclick="showProject(0, this)">Celeste</div>
-        <div class="project-item" onclick="showProject(1, this)">Life Stone Engine</div>
+        <div class="project-item" onclick="showProject(1, this)">Daylist</div>
     </div>
 
     <div class="right-section">
         
-        <div class="video-container">
-            <video id="proj-video" autoplay loop muted playsinline>
-                <source src="Assets/CelesteVideo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+        <div class="video-container" id="proj-media-container">
+            </div>
 
         <div class="details-container">
             <div class="details-content">
@@ -221,6 +247,8 @@
                     <span class="tech-tag">TypeScript</span>
                     <span class="tech-tag">Redux</span>
                 </div>
+
+                <div id="proj-links" class="project-links"></div>
             </div>
         </div>
 
@@ -231,25 +259,27 @@
     </div>
 
     <script>
-        // Project Data Array with Video Links
+        // Project Data Array with URL targets and Media files
         const projects = [
             {
                 title: "Celeste",
                 category: "// Mobile Application",
                 desc: "A high-performance mobile application designed with custom state management and smooth animated UI components inspired by JRPGs.",
                 tech: ["React Native", "TypeScript", "Redux"],
-                video: "2025-11-08 20-35-10.mp4"
+                media: "Recording 2026-09-06 002900.gif"
             },
             {
-                title: "LIFE STONE ENGINE",
+                title: "Daylist",
                 category: "// Game Development",
                 desc: "A custom 2D WebGL rendering engine built for browser-based games, featuring real-time light rendering and physics calculation.",
                 tech: ["WebGL", "JavaScript", "HTML5 Canvas"],
-                video: "2025-11-08 20-35-10.mp4"
+                media: "Daylist demo.mp4",
+                github: "https://github.com/cala28124-sketch/daylist",
+                demo: "https://devpost.com/software/daylist"
             },
         ];
 
-        // Function to update the right side content and video when clicking an item
+        // Function to update content, media (GIF/Video), tags, and action buttons
         function showProject(index, element) {
             // Update Active class styling
             document.querySelectorAll('.project-item').forEach(item => item.classList.remove('active'));
@@ -261,11 +291,35 @@
             document.getElementById('proj-category').innerText = selected.category;
             document.getElementById('proj-desc').innerText = selected.desc;
 
-            // Update Video Source
-            const videoElem = document.getElementById('proj-video');
-            if (selected.video && videoElem.src !== selected.video) {
-                videoElem.src = selected.video;
-                videoElem.play();
+            // Render Video or Image GIF dynamically depending on extension
+            const mediaContainer = document.getElementById('proj-media-container');
+            mediaContainer.innerHTML = ''; // Clear existing media
+
+            if (selected.media) {
+                const isGif = selected.media.toLowerCase().endsWith('.gif');
+                
+                if (isGif) {
+                    const img = document.createElement('img');
+                    img.src = selected.media;
+                    img.alt = selected.title;
+                    img.className = 'media-display';
+                    mediaContainer.appendChild(img);
+                } else {
+                    const video = document.createElement('video');
+                    video.className = 'media-display';
+                    video.autoplay = true;
+                    video.loop = true;
+                    video.muted = true;
+                    video.playsInline = true;
+
+                    const source = document.createElement('source');
+                    source.src = selected.media;
+                    source.type = 'video/mp4';
+
+                    video.appendChild(source);
+                    mediaContainer.appendChild(video);
+                    video.play();
+                }
             }
 
             // Update Tech Tags
@@ -277,7 +331,37 @@
                 tag.innerText = t;
                 techContainer.appendChild(tag);
             });
+
+            // Dynamically Render GitHub and Demo Links
+            const linksContainer = document.getElementById('proj-links');
+            linksContainer.innerHTML = '';
+
+            if (selected.github) {
+                const ghBtn = document.createElement('a');
+                ghBtn.className = 'action-btn';
+                ghBtn.href = selected.github;
+                ghBtn.target = '_blank';
+                ghBtn.innerText = 'GitHub Code ↗';
+                linksContainer.appendChild(ghBtn);
+            }
+
+            if (selected.demo) {
+                const demoBtn = document.createElement('a');
+                demoBtn.className = 'action-btn';
+                demoBtn.href = selected.demo;
+                demoBtn.target = '_blank';
+                demoBtn.innerText = 'Live Demo ↗';
+                linksContainer.appendChild(demoBtn);
+            }
         }
+
+        // Run on initial load to ensure active project links and GIF render immediately
+        document.addEventListener('DOMContentLoaded', () => {
+            const activeItem = document.querySelector('.project-item.active');
+            if (activeItem) {
+                showProject(0, activeItem);
+            }
+        });
     </script>
 
 </body>

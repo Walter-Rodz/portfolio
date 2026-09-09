@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
     <style>
         body {
-            background-image: url('Assets/SkillsBack.jpeg');
+            background-image: url('691bd9e6b26e60ccf41d27652922d250 (1).jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -16,22 +16,44 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            padding: 40px 4vw;
             font-family: 'Montserrat', sans-serif;
             color: #fff;
-            overflow: hidden;
+            overflow-x: hidden;
             box-sizing: border-box;
         }
 
-        /* Container grouping tabs and text box */
-        .skills-wrapper {
-            position: relative;
-            width: 680px;
-            margin-top: 40px;
+        .page-header {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 3;
         }
 
-        /* Persona 5 Styled Tab Buttons Placed Right On Top */
+        .page-title {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            font-style: italic;
+            color: #fff;
+            background: #d80000;
+            display: inline-block;
+            padding: 8px 30px;
+            border: 5px solid #000;
+            transform: skewX(-12deg) rotate(-2deg);
+            box-shadow: 8px 8px 0px #000;
+            margin: 0;
+        }
+
+        .skills-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 680px;
+            margin-top: 40px;
+            z-index: 2;
+        }
+
         .tabs-header {
             display: flex;
             gap: 15px;
@@ -39,6 +61,7 @@
             top: -38px;
             left: 20px;
             z-index: 3;
+            flex-wrap: wrap;
         }
 
         .tab-btn {
@@ -70,7 +93,6 @@
             border-color: #fff;
         }
 
-        /* Main Content Box Styled like the P5 Party List Box */
         .content-box {
             position: relative;
             background: #000;
@@ -83,7 +105,6 @@
             min-height: 380px;
         }
 
-        /* Counter-skew content to keep text crisp and readable */
         .box-inner {
             transform: skewX(6deg);
         }
@@ -100,7 +121,6 @@
             transform: rotate(-2deg);
         }
 
-        /* Individual Skill Item Rows */
         .skill-list {
             display: flex;
             flex-direction: column;
@@ -123,10 +143,12 @@
             text-transform: uppercase;
         }
 
-        /* Navigation Footer Link */
         .nav-footer {
             margin-top: 45px;
             z-index: 3;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         .back-link {
@@ -149,16 +171,80 @@
             color: #fff;
             transform: scale(1.05);
         }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 4vw;
+                justify-content: flex-start;
+                overflow-y: auto;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+                padding: 6px 16px;
+            }
+
+            .skills-wrapper {
+                margin-top: 15px;
+            }
+
+            .tabs-header {
+                position: relative;
+                top: 0;
+                left: 0;
+                justify-content: center;
+                margin-bottom: 15px;
+                gap: 10px;
+            }
+
+            .tab-btn {
+                font-size: 1rem;
+                padding: 8px 14px;
+                transform: none !important;
+                box-shadow: 3px 3px 0px #000;
+            }
+
+            .tab-btn.active {
+                transform: translateY(-2px) !important;
+            }
+
+            .content-box {
+                transform: none;
+                padding: 25px 20px;
+                min-height: auto;
+                box-shadow: 6px 6px 0px #d80000;
+            }
+
+            .box-inner {
+                transform: none;
+            }
+
+            .category-title {
+                font-size: 1.8rem;
+            }
+
+            .skill-row {
+                transform: none;
+            }
+
+            .skill-name {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <header class="page-header">
+        <h1 class="page-title">Skills</h1>
+    </header>
 
     <div class="skills-wrapper">
         
         <div class="tabs-header">
             <button class="tab-btn active" onclick="switchTab(0, this)">Frontend</button>
             <button class="tab-btn" onclick="switchTab(1, this)">Backend</button>
-            <button class="tab-btn" onclick="switchTab(2, this)">Tools & UI</button>
+            <button class="tab-btn" onclick="switchTab(2, this)">Tools </button>
         </div>
 
         <div class="content-box">
@@ -177,38 +263,35 @@
     </div>
 
     <script>
-        // Skills Data Array
         const skillCategories = [
             {
-                title: "FRONTEND",
+                title: "Frontend",
                 skills: [
-                    { name: "HTML5 / CSS3" },
-                    { name: "JavaScript (ES6+)" },
-                    { name: "React / Next.js" },
-                    { name: "Tailwind CSS" }
+                    { name: "HTML / CSS" },
+                    { name: "JavaScript" },
+                    { name: "React" },
                 ]
             },
             {
-                title: "BACKEND",
+                title: "Backend",
                 skills: [
-                    { name: "Node.js / Express" },
+                    { name: "C#" },
                     { name: "Python" },
-                    { name: "PostgreSQL / MongoDB" },
-                    { name: "REST APIs" }
+                    { name: "C/C++" },
+                    { name: "Java" }
                 ]
             },
             {
-                title: "TOOLS & UI",
+                title: "Tools",
                 skills: [
-                    { name: "Git / GitHub" },
-                    { name: "Figma / UI Design" },
-                    { name: "Docker" },
-                    { name: "Webpack / Vite" }
+                    { name: "GitHub" },
+                    { name: "VS Code" },
+                    { name: "Unity" },
+                    { name: "Gemini API" }
                 ]
             }
         ];
 
-        // Function to render skills list inside the box
         function renderSkills(categoryIndex) {
             const category = skillCategories[categoryIndex];
             document.getElementById('cat-title').innerText = category.title;
@@ -224,14 +307,12 @@
             });
         }
 
-        // Switch Tab Function
         function switchTab(index, btnElement) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
             renderSkills(index);
         }
 
-        // Initial Load
         renderSkills(0);
     </script>
 

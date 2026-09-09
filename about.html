@@ -26,7 +26,7 @@
             background-color: #000000;
             border: 4px solid #ffffff;
             padding: 12px;
-            transform: translatex(400px) translatey(50px) ;
+            transform: translatex(400px) translatey(50px);
             box-shadow: -8px 8px 0px #d90000;
             display: flex;
             justify-content: center;
@@ -48,7 +48,6 @@
             box-sizing: border-box;
         }
 
-        
         .p5-black-box {
             background-color: #000000;
             border: 4px solid #ffffff;
@@ -59,7 +58,8 @@
             flex-direction: column;
             gap: 18px;
             max-width: 650px;
-}
+            box-sizing: border-box;
+        }
 
         .p5-item-container {
             display: flex;
@@ -69,7 +69,6 @@
             min-height: 420px;
         }
 
-        /* Larger Header Tag */
         .p5-header {
             background-color: #d90000;
             color: #ffffff;
@@ -77,13 +76,12 @@
             font-weight: 900;
             font-style: italic;
             padding: 6px 16px;
-            margin-top: 0;           
+            margin-top: 0;          
             margin-bottom: 8px;      
             letter-spacing: 1.5px;
             border: 3px solid #000;
         }
 
-        /* Larger Item Text */
         .p5-item {
             color: #ffffff;
             font-size: clamp(1.1rem, 3vw, 1.6rem);
@@ -98,9 +96,8 @@
             word-break: break-word;
         }
 
-        /* Larger Back Link Button */
         .p5-back-btn {
-            margin-top: 15PX;
+            margin-top: 15px;
             color: #ff3333;
             text-decoration: none;
             font-size: 2.5rem; 
@@ -114,6 +111,52 @@
             transform: scale(1.05);
             color: #ffffff;
         }
+
+        /* MOBILE & SMALL SCREEN ACCESSIBILITY */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column-reverse; /* Puts description (p5-black-box) on top, image on bottom */
+                justify-content: flex-start;
+                align-items: center;
+                padding: 40px 6vw;
+                overflow-y: auto;
+            }
+
+            .p5-black-box {
+                /* Kept exact skewX(-14deg) rotate(-6deg) transform */
+                transform: skewX(-14deg) rotate(-6deg);
+                width: 85%;
+                max-width: 100%;
+                padding: 25px 20px;
+                margin-top: 20px;
+                margin-bottom: 50px;
+            }
+
+            .p5-item-container {
+                min-height: auto;
+            }
+
+            .p5-header {
+                font-size: 1.5rem;
+            }
+
+            .p5-item {
+                font-size: 1rem;
+            }
+
+            .p5-image-box {
+                transform: none; /* Removed pixel offsets (translateX 400px / translateY 50px) so image fits screen */
+                margin-right: 0;
+                width: 90%;
+                max-width: 400px;
+                min-height: auto;
+                margin-bottom: 40px;
+            }
+
+            .p5-back-btn {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -124,17 +167,9 @@
 
     <div class="p5-black-box">
         <div class="p5-item-container">
-        <div class="p5-header">ABOUT ME</div>
+            <div class="p5-header">ABOUT ME</div>
             <div class="p5-item">
-                </span> Blah Blah Blah Blagh Blah Blah Blah BlahBlah Blah Blah Blah Blah
-                Blahdghdgsudwhuegyusdghuydfgdyhfgv
-                adewdqwdsadcsadsadsa
-                wqwdsadsdasdasdsadasdsad
-                sadsadasdasdsadsadasdsadsa
-                asdasdsadasdasdsadasdasdasdsa
-                asdasdasdasdasdsadsadasdasdsas
-
-
+                Hi, I'm Walter Rodriguez. I'm an aspiring software engineer with a passion for building intricate, creative applications. I love learning new things every day, especially when it comes to the software I stumble upon. When an app catches my attention, I dive deep into how it works, dissecting how the developers might have built it so I can incorporate those techniques into my own projects. 
             </div>
 
             <a href="index (1).html" class="p5-back-btn">← RETURN TO MAIN MENU</a>

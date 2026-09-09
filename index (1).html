@@ -6,8 +6,6 @@
     <title>My Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Impact&family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
 
-    
-    
     <style>
         body {
             background-image: url('Background3.jpg');
@@ -21,40 +19,79 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding-left: 60vw; /* Offsets whole menu slightly to the left of true center */
+            padding-left: 60vw; 
             padding-top: 5vh;
             font-family: 'Montserrat', 'Impact', sans-serif;
             overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .top-header {
+            position: absolute;
+            top: 40px;
+            left: 4vw;
+            z-index: 10;
+        }
+
+        .header-title {
+            background-color: #fff;
+            color: #000;
+            padding: 20px 48px;
+            font-size: 4.5rem; 
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            border: 7px solid #000;
+            box-shadow: 12px 12px 0px #000;
+            transform: skewX(-12deg) rotate(-1deg);
+            display: inline-block;
+            user-select: none;
         }
 
         .p5-menu {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 20px;
+            gap: 16px;
         }
 
         .p5-text-group {
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
+            background-color: #fff;
+            color: #000;
+            border: 4.5px solid #000;
+            padding: 16px 36px;
             cursor: pointer;
+            text-transform: uppercase;
+            font-style: italic;
+            font-size: 2.2rem;
+            font-weight: 900;
             text-decoration: none;
-            transition: transform 0.15s ease-in-out;
+            box-shadow: 7px 7px 0px #000;
+            transition: all 0.15s ease-in-out;
+            user-select: none;
+            width: 100%;          
+            min-width: 380px;     
+            box-sizing: border-box;
         }
 
         .p5-text-group:hover {
-            transform: scale(1.08) rotate(-2deg);
+            background-color: #000;
+            color: #fff;
+            border-color: #fff;
+            box-shadow: 6px 6px 0px #d80000;
+            transform: skewX(-12deg) scale(1.05);
         }
 
-        /* Styling individual letters */
         .p5-letter {
             display: inline-block;
-            font-size: 3.6rem;    /* Increased size slightly (up from 2rem) i am also awesome!*/
+            font-size: 3.6rem;    
             font-weight: 900;
             font-style: italic;
             color: #111;
             background-color: #fff;
-            padding: 4px 14px;    /* Scaled padding to match larger font */
+            padding: 4px 14px;    
             margin: -3px;
             border: 3.5px solid #000;
             text-transform: uppercase;
@@ -62,20 +99,10 @@
             user-select: none;
         }
 
-        /* Alternating black & white Persona 5 tag effects */
-        .p5-letter:nth-child(odd) {
-            background-color: #ffffff;
-            color: #000000;
-            transform: skewX(-12deg) rotate(-3deg);
+        .p5-text-group:nth-child(odd) {
+            transform: skewX(-12deg) rotate(-1deg);
         }
 
-        .p5-letter:nth-child(even) {
-            background-color: #000000;
-            color: #ffffff;
-            transform: skewX(-8deg) rotate(4deg) translateY(-4px);
-        }
-
-        /* Specific rotation tweaks to mimic chaotic hand-drawn layout */
         .p5-letter:nth-child(3n) {
             transform: skewX(-15deg) rotate(-6deg) scale(1.05);
         }
@@ -87,51 +114,69 @@
         .p5-space {
             width: 18px;
         }
+
+        @media (max-width: 900px) {
+            body {
+                padding-left: 0;
+                padding-top: 0;
+                justify-content: flex-start;
+                align-items: center;
+                overflow-y: auto;
+                padding: 30px 4vw;
+            }
+
+            .top-header {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 35px;
+            }
+
+            .header-title {
+                font-size: 1.8rem;
+                padding: 10px 20px;
+                border: 4px solid #000;
+                box-shadow: 6px 6px 0px #000;
+                transform: skewX(-12deg) rotate(-1deg);
+                text-align: center;
+            }
+
+            .p5-menu {
+                align-items: center;
+                width: 100%;
+                max-width: 340px;
+            }
+
+            .p5-text-group {
+                min-width: unset;
+                width: 100%;
+                justify-content: center;
+                font-size: 1.5rem;
+                padding: 12px 20px;
+                border: 3.5px solid #000;
+                box-shadow: 5px 5px 0px #000;
+            }
+
+            .p5-text-group:nth-child(odd) {
+                transform: skewX(-12deg) rotate(-1deg);
+            }
+        }
     </style>
 </head>
 <body>
 
+    <header class="top-header">
+        <div class="header-title">Walter's Portfolio</div>
+    </header>
+
     <div class="p5-menu">
-        <a href="about.html" class="p5-text-group">
-            <span class="p5-letter">A</span>
-            <span class="p5-letter">B</span>
-            <span class="p5-letter">O</span>
-            <span class="p5-letter">U</span>
-            <span class="p5-letter">T</span>
-            <span class="p5-space"></span>
-            <span class="p5-letter">M</span>
-            <span class="p5-letter">E</span>
-        </a>
-
-        <a href="skills.html" class="p5-text-group">
-            <span class="p5-letter">S</span>
-            <span class="p5-letter">K</span>
-            <span class="p5-letter">I</span>
-            <span class="p5-letter">L</span>
-            <span class="p5-letter">L</span>
-            <span class="p5-letter">S</span>
-        </a>
-
-        <a href="project.html" class="p5-text-group">
-            <span class="p5-letter">P</span>
-            <span class="p5-letter">R</span>
-            <span class="p5-letter">O</span>
-            <span class="p5-letter">J</span>
-            <span class="p5-letter">E</span>
-            <span class="p5-letter">C</span>
-            <span class="p5-letter">T</span>
-            <span class="p5-letter">S</span>
-        </a>
-
-        <a href="contact.html" class="p5-text-group">
-            <span class="p5-letter">C</span>
-            <span class="p5-letter">O</span>
-            <span class="p5-letter">N</span>
-            <span class="p5-letter">T</span>
-            <span class="p5-letter">A</span>
-            <span class="p5-letter">C</span>
-            <span class="p5-letter">T</span>
-        </a>
+        <a href="about.html" class="p5-text-group">ABOUT ME</a>
+        <a href="skills.html" class="p5-text-group">SKILLS</a>
+        <a href="project.html" class="p5-text-group">PROJECTS</a>
+        <a href="contact.html" class="p5-text-group">CONTACT</a>
     </div>
 
 </body>

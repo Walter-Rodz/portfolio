@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
-            background-image: url('Assets/ContactBack.jpeg');
+            background-image: url('0a365ef59db570bb7ed70674c9db9855.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -20,26 +19,26 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 20px 4vw;
             font-family: 'Montserrat', sans-serif;
             color: #fff;
-            overflow: hidden;
+            overflow-x: hidden;
             box-sizing: border-box;
         }
 
-        /* Persona 5 Styled Angled Container */
         .contact-box {
             position: relative;
-            width: 650px;
+            width: 100%;
+            max-width: 650px;
             background: #000;
             border: 5px solid #fff;
             padding: 40px 45px;
-            transform: skewX(-6deg) rotate(1deg);
+            transform: translateX(35px) skewX(-6deg) rotate(1deg);
             box-shadow: -12px 14px 0px #d80000;
             z-index: 2;
             box-sizing: border-box;
         }
 
-        /* Counter-skew content to maintain sharp readability */
         .box-inner {
             transform: skewX(6deg);
         }
@@ -65,14 +64,12 @@
             font-style: italic;
         }
 
-        /* Contact Items Wrapper */
         .contact-list {
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
 
-        /* Menu Rows Styled Like the P5 Party List */
         .contact-row {
             display: flex;
             justify-content: space-between;
@@ -84,9 +81,9 @@
             text-decoration: none;
             color: #fff;
             transition: all 0.15s ease-in-out;
+            word-break: break-word;
         }
 
-        /* Hover Effect: Background turns white, all inner text turns black */
         .contact-row:hover {
             background: #fff;
             color: #000;
@@ -99,11 +96,14 @@
             font-weight: 900;
             font-style: italic;
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
         }
 
-        /* Icon spacing inside button label */
         .label i {
-            margin-right: 12px;
+            flex-shrink: 0;
         }
 
         .value {
@@ -113,15 +113,16 @@
             font-weight: bold;
         }
 
-        /* Ensure right-side text also turns black on row hover */
         .contact-row:hover .value {
             color: #000;
         }
 
-        /* Navigation Footer Link */
         .nav-footer {
             margin-top: 45px;
             z-index: 3;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         .back-link {
@@ -144,6 +145,53 @@
             color: #fff;
             transform: scale(1.05);
         }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 4vw;
+                overflow-y: auto;
+            }
+
+            .contact-box {
+                transform: none;
+                padding: 25px 20px;
+                box-shadow: 6px 6px 0px #d80000;
+            }
+
+            .box-inner {
+                transform: none;
+            }
+
+            .contact-title {
+                font-size: 2rem;
+                padding: 4px 12px;
+            }
+
+            .contact-subtitle {
+                font-size: 0.95rem;
+                letter-spacing: 1.5px;
+                margin-bottom: 20px;
+            }
+
+            .contact-row {
+                transform: none;
+                padding: 10px 14px;
+            }
+
+            .contact-row:hover {
+                transform: translateX(4px);
+            }
+
+            .label {
+                font-size: 1rem;
+                gap: 8px;
+            }
+
+            .back-link {
+                font-size: 0.95rem;
+                padding: 10px 18px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -151,7 +199,7 @@
     <div class="contact-box">
         <div class="box-inner">
             <h1 class="contact-title">CONTACT ME</h1>
-            <div class="contact-subtitle">// Let's Connect & Work Together</div>
+            <div class="contact-subtitle">Let's Connect</div>
 
             <div class="contact-list">
                 <a href="mailto:Jimmycarol331@gmail.com" class="contact-row">
@@ -166,7 +214,7 @@
                     <span class="label"><i class="fa-brands fa-linkedin"></i>LinkedIn</span>
                 </a>
 
-                <a href="Assets/Resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-row">
+                <a href="Walter Resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-row">
                     <span class="label"><i class="fa-solid fa-file-pdf"></i>Resume</span>
                 </a>
             </div>

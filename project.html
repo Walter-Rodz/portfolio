@@ -7,29 +7,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
     <style>
         body {
-            background-image: url('Assets/ProjectsBack.jpeg');
+            background-image: url('9e1fad0dd08ab46868c8091c2970ae27.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            image-rendering: -webkit-optimize-contrast;
             min-height: 100vh;
             margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 0 4vw;
+            padding: 40px 4vw;
             font-family: 'Montserrat', sans-serif;
             color: #fff;
-            overflow: hidden;
+            overflow-x: hidden;
             box-sizing: border-box;
         }
 
-        /* Left Side: Projects List (Expanded) */
+        /* HEADER STYLES */
+        .page-header {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 2;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            font-style: italic;
+            color: #fff;
+            background: #d80000;
+            display: inline-block;
+            padding: 8px 30px;
+            border: 5px solid #000;
+            transform: skewX(-12deg) rotate(-2deg);
+            box-shadow: 8px 8px 0px #000;
+            margin: 0;
+        }
+
+        /* MAIN CONTENT LAYOUT */
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1300px;
+            z-index: 2;
+        }
+
         .projects-list {
             display: flex;
             flex-direction: column;
             gap: 16px;
-            width: 480px;
+            width: 420px;
             z-index: 2;
         }
 
@@ -49,7 +82,6 @@
             user-select: none;
         }
 
-        /* Persona 5 skewed cuts */
         .project-item:nth-child(odd) {
             transform: skewX(-12deg) rotate(-1deg);
         }
@@ -61,8 +93,7 @@
             box-shadow: 6px 6px 0px #000;
         }
 
-        /* Hover & Active States */
-        .project-item:hover{
+        .project-item:hover {
             background: #000;
             color: #fff;
             border-color: #fff;
@@ -75,7 +106,6 @@
             box-shadow: 6px 6px 0px #000;
         }
 
-        /* Right Section Wrapper */
         .right-section {
             display: flex;
             flex-direction: column;
@@ -83,7 +113,6 @@
             z-index: 2;
         }
 
-        /* Video/GIF Container Placed Above */
         .video-container {
             width: 580px;
             height: 300px;
@@ -92,7 +121,7 @@
             box-shadow: 8px 8px 0px #000;
             transform: translateY(-30px) skewX(-6deg) rotate(-1deg);
             overflow: hidden;
-            margin-bottom: -10px; /* Overlaps slightly with the description box */
+            margin-bottom: -10px; 
             z-index: 3;
         }
 
@@ -103,7 +132,6 @@
             display: block;
         }
 
-        /* Shifted Down & Left Persona 5 Angled Info Box */
         .details-container {
             position: relative;
             width: 650px;
@@ -118,7 +146,7 @@
         }
 
         .details-content {
-            transform: skewX(6deg); /* Counter-skew text so it stays readable */
+            transform: skewX(6deg); 
         }
 
         .project-title {
@@ -131,15 +159,6 @@
             display: inline-block;
             padding: 6px 18px;
             transform: rotate(-2deg);
-        }
-
-        .project-category {
-            font-size: 1.2rem;
-            color: #ff3333;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            margin-bottom: 20px;
-            font-style: italic;
         }
 
         .project-description {
@@ -166,7 +185,6 @@
             transform: skewX(-10deg);
         }
 
-        /* Dynamic Links Styling - Red by default, White on Hover */
         .project-links {
             display: flex;
             gap: 16px;
@@ -176,8 +194,8 @@
 
         .action-btn {
             display: inline-block;
-            background: #d80000; /* Red base background */
-            color: #fff;        /* White text */
+            background: #d80000;
+            color: #fff;        
             text-decoration: none;
             font-weight: 900;
             font-style: italic;
@@ -191,13 +209,12 @@
         }
 
         .action-btn:hover {
-            background: #fff;    /* Flips to white background */
-            color: #000;        /* Black text */
+            background: #fff;    
+            color: #000;        
             border-color: #000;
             box-shadow: 4px 4px 0px #d80000;
         }
 
-        /* Navigation Links */
         .back-link {
             color: #fff;
             background: #000;
@@ -218,40 +235,121 @@
         }
 
         .nav-footer {
-            position: absolute;
-            bottom: 30px;
-            left: 4vw;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 30px;
+            z-index: 2;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 20px 4vw;
+                overflow-y: auto;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+                padding: 6px 16px;
+            }
+
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+
+            /* Convert list to horizontal tabs */
+            .projects-list {
+                flex-direction: row;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .project-item {
+                font-size: 1.2rem;
+                padding: 8px 16px;
+                transform: none !important;
+            }
+
+            .project-item.active {
+                transform: translateY(-2px) !important;
+            }
+
+            .right-section {
+                width: 100%;
+                align-items: center;
+            }
+
+            /* Video goes on top */
+            .video-container {
+                width: 100%;
+                max-width: 500px;
+                height: 240px;
+                transform: none;
+                margin-bottom: 15px;
+            }
+
+            /* Description goes on bottom */
+            .details-container {
+                width: 100%;
+                max-width: 500px;
+                min-height: auto;
+                transform: none;
+                padding: 24px;
+                box-shadow: 6px 6px 0px #d80000;
+            }
+
+            .details-content {
+                transform: none;
+            }
+
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .project-description {
+                font-size: 1.1rem;
+            }
+
+            .nav-footer {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="projects-list">
-        <div class="project-item active" onclick="showProject(0, this)">Celeste</div>
-        <div class="project-item" onclick="showProject(1, this)">Daylist</div>
-    </div>
+    <!-- PROJECT HEADER -->
+    <header class="page-header">
+        <h1 class="page-title">Projects</h1>
+    </header>
 
-    <div class="right-section">
-        
-        <div class="video-container" id="proj-media-container">
-            </div>
-
-        <div class="details-container">
-            <div class="details-content">
-                <h2 id="proj-title" class="project-title">Celeste</h2>
-                <div id="proj-category" class="project-category">// Mobile Application</div>
-                <p id="proj-desc" class="project-description">A high-performance mobile application designed with custom state management and smooth animated UI components inspired by JRPGs.</p>
-                
-                <div id="proj-tech" class="project-tech">
-                    <span class="tech-tag">React Native</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">Redux</span>
-                </div>
-
-                <div id="proj-links" class="project-links"></div>
-            </div>
+    <div class="main-container">
+        <!-- PROJECT TABS -->
+        <div class="projects-list">
+            <div class="project-item active" onclick="showProject(0, this)">Solztice</div>
+            <div class="project-item" onclick="showProject(1, this)">Daylist</div>
         </div>
 
+        <div class="right-section">
+            <!-- VIDEO CONTAINER (TOP) -->
+            <div class="video-container" id="proj-media-container"></div>
+
+            <!-- DESCRIPTION CONTAINER (BOTTOM) -->
+            <div class="details-container">
+                <div class="details-content">
+                    <h2 id="proj-title" class="project-title">Solztice</h2>
+                    <p id="proj-desc" class="project-description"></p>
+                    
+                    <div id="proj-tech" class="project-tech"></div>
+
+                    <div id="proj-links" class="project-links"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="nav-footer">
@@ -259,41 +357,33 @@
     </div>
 
     <script>
-        // Project Data Array with URL targets and Media files
         const projects = [
             {
-                title: "Celeste",
-                category: "// Mobile Application",
-                desc: "A high-performance mobile application designed with custom state management and smooth animated UI components inspired by JRPGs.",
-                tech: ["React Native", "TypeScript", "Redux"],
-                media: "Recording 2026-09-06 002900.gif"
+                title: "Solztice",
+                desc: "A 2.5D top-down action-adventure game that has you exploring another planets trying to find a way to escape fighting enemy and bosses along the way.",
+                tech: ["Unity", "C#"],
+                media: "Recording 2026-09-08 210850.gif"
             },
             {
                 title: "Daylist",
-                category: "// Game Development",
-                desc: "A custom 2D WebGL rendering engine built for browser-based games, featuring real-time light rendering and physics calculation.",
-                tech: ["WebGL", "JavaScript", "HTML5 Canvas"],
+                desc: "A web application that takes a prompt from the user and generates a spotify playlist that best fits the mood of the prompt.",
+                tech: ["Gemini API", "React", "Spotify API"],
                 media: "Daylist demo.mp4",
                 github: "https://github.com/cala28124-sketch/daylist",
                 demo: "https://devpost.com/software/daylist"
             },
         ];
 
-        // Function to update content, media (GIF/Video), tags, and action buttons
         function showProject(index, element) {
-            // Update Active class styling
             document.querySelectorAll('.project-item').forEach(item => item.classList.remove('active'));
             element.classList.add('active');
 
-            // Update Panel Text
             const selected = projects[index];
-            document.getElementById('proj-title').innerText = selected.title;
-            document.getElementById('proj-category').innerText = selected.category;
-            document.getElementById('proj-desc').innerText = selected.desc;
+            document.getElementById('proj-title').innerText = selected.title || '';
+            document.getElementById('proj-desc').innerText = selected.desc || '';
 
-            // Render Video or Image GIF dynamically depending on extension
             const mediaContainer = document.getElementById('proj-media-container');
-            mediaContainer.innerHTML = ''; // Clear existing media
+            mediaContainer.innerHTML = ''; 
 
             if (selected.media) {
                 const isGif = selected.media.toLowerCase().endsWith('.gif');
@@ -322,17 +412,17 @@
                 }
             }
 
-            // Update Tech Tags
             const techContainer = document.getElementById('proj-tech');
             techContainer.innerHTML = '';
-            selected.tech.forEach(t => {
-                const tag = document.createElement('span');
-                tag.className = 'tech-tag';
-                tag.innerText = t;
-                techContainer.appendChild(tag);
-            });
+            if (selected.tech) {
+                selected.tech.forEach(t => {
+                    const tag = document.createElement('span');
+                    tag.className = 'tech-tag';
+                    tag.innerText = t;
+                    techContainer.appendChild(tag);
+                });
+            }
 
-            // Dynamically Render GitHub and Demo Links
             const linksContainer = document.getElementById('proj-links');
             linksContainer.innerHTML = '';
 
@@ -355,7 +445,6 @@
             }
         }
 
-        // Run on initial load to ensure active project links and GIF render immediately
         document.addEventListener('DOMContentLoaded', () => {
             const activeItem = document.querySelector('.project-item.active');
             if (activeItem) {
@@ -363,6 +452,5 @@
             }
         });
     </script>
-
 </body>
 </html>

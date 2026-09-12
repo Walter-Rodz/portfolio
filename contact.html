@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>Contact - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
-            background-image: url('Assets/ContactBack.jpeg');
+            background-image: url('0a365ef59db570bb7ed70674c9db9855.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -18,32 +19,210 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 20px 4vw;
             font-family: 'Montserrat', sans-serif;
             color: #fff;
+            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
-        .content-box {
-            background: rgba(0, 0, 0, 0.85);
-            padding: 30px;
-            border: 3px solid #fff;
-            max-width: 600px;
-            text-align: center;
+        .contact-box {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            background: #000;
+            border: 5px solid #fff;
+            padding: 40px 45px;
+            transform: translateX(35px) skewX(-6deg) rotate(1deg);
+            box-shadow: -12px 14px 0px #d80000;
+            z-index: 2;
+            box-sizing: border-box;
+        }
+
+        .box-inner {
+            transform: skewX(6deg);
+        }
+
+        .contact-title {
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            font-style: italic;
+            margin: 0 0 8px 0;
+            color: #fff;
+            background: #d80000;
+            display: inline-block;
+            padding: 6px 18px;
+            transform: rotate(-2deg);
+        }
+
+        .contact-subtitle {
+            font-size: 1.1rem;
+            color: #ff3333;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.08);
+            border-left: 5px solid #d80000;
+            padding: 12px 20px;
+            transform: skewX(-4deg);
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.15s ease-in-out;
+            word-break: break-word;
+        }
+
+        .contact-row:hover {
+            background: #fff;
+            color: #000;
+            border-left-color: #000;
+            transform: skewX(-4deg) scale(1.02) translateX(6px);
+        }
+
+        .label {
+            font-size: 1.3rem;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .label i {
+            flex-shrink: 0;
+        }
+
+        .value {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .contact-row:hover .value {
+            color: #000;
+        }
+
+        .nav-footer {
+            margin-top: 45px;
+            z-index: 3;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         .back-link {
-            color: #fff;
-            text-decoration: underline;
+            color: white;
+            background: black;
+            text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            border: 3px solid #000;
+            text-transform: uppercase;
+            font-style: italic;
+            border: 3px solid #fff;
+            box-shadow: 4px 4px 0px #000;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            background: #d80000;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 4vw;
+                overflow-y: auto;
+            }
+
+            .contact-box {
+                transform: none;
+                padding: 25px 20px;
+                box-shadow: 6px 6px 0px #d80000;
+            }
+
+            .box-inner {
+                transform: none;
+            }
+
+            .contact-title {
+                font-size: 2rem;
+                padding: 4px 12px;
+            }
+
+            .contact-subtitle {
+                font-size: 0.95rem;
+                letter-spacing: 1.5px;
+                margin-bottom: 20px;
+            }
+
+            .contact-row {
+                transform: none;
+                padding: 10px 14px;
+            }
+
+            .contact-row:hover {
+                transform: translateX(4px);
+            }
+
+            .label {
+                font-size: 1rem;
+                gap: 8px;
+            }
+
+            .back-link {
+                font-size: 0.95rem;
+                padding: 10px 18px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="content-box">
-        <h1>ABOUT ME</h1>
-        <p>Welcome! Here is where you can write your bio, background, and interests.</p>
+    <div class="contact-box">
+        <div class="box-inner">
+            <h1 class="contact-title">CONTACT ME</h1>
+            <div class="contact-subtitle">Let's Connect</div>
+
+            <div class="contact-list">
+                <a href="mailto:Jimmycarol331@gmail.com" class="contact-row">
+                    <span class="label"><i class="fa-solid fa-envelope"></i>Jimmycarol331@gmail.com</span>
+                </a>
+
+                <a href="https://github.com/Walter-Rodz" target="_blank" rel="noopener noreferrer" class="contact-row">
+                    <span class="label"><i class="fa-brands fa-github"></i>GitHub</span>
+                </a>
+
+                <a href="https://www.linkedin.com/in/walter-rodriguez-aa8421246/" target="_blank" rel="noopener noreferrer" class="contact-row">
+                    <span class="label"><i class="fa-brands fa-linkedin"></i>LinkedIn</span>
+                </a>
+
+                <a href="Walter Resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-row">
+                    <span class="label"><i class="fa-solid fa-file-pdf"></i>Resume</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-footer">
         <a href="index (1).html" class="back-link">← Back to Main Menu</a>
     </div>
 

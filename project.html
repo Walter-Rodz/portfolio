@@ -26,7 +26,6 @@
             box-sizing: border-box;
         }
 
-        /* HEADER STYLES */
         .page-header {
             width: 100%;
             text-align: center;
@@ -48,7 +47,6 @@
             margin: 0;
         }
 
-        /* MAIN CONTENT LAYOUT */
         .main-container {
             display: flex;
             justify-content: space-between;
@@ -259,7 +257,6 @@
                 gap: 25px;
             }
 
-            /* Convert list to horizontal tabs */
             .projects-list {
                 flex-direction: row;
                 width: 100%;
@@ -283,7 +280,6 @@
                 align-items: center;
             }
 
-            /* Video goes on top */
             .video-container {
                 width: 100%;
                 max-width: 500px;
@@ -292,7 +288,6 @@
                 margin-bottom: 15px;
             }
 
-            /* Description goes on bottom */
             .details-container {
                 width: 100%;
                 max-width: 500px;
@@ -322,23 +317,19 @@
 </head>
 <body>
 
-    <!-- PROJECT HEADER -->
     <header class="page-header">
         <h1 class="page-title">Projects</h1>
     </header>
 
     <div class="main-container">
-        <!-- PROJECT TABS -->
         <div class="projects-list">
             <div class="project-item active" onclick="showProject(0, this)">Solztice</div>
             <div class="project-item" onclick="showProject(1, this)">Daylist</div>
+            <div class="project-item" onclick="showProject(2, this)">Blowing off Steam</div>
         </div>
 
         <div class="right-section">
-            <!-- VIDEO CONTAINER (TOP) -->
             <div class="video-container" id="proj-media-container"></div>
-
-            <!-- DESCRIPTION CONTAINER (BOTTOM) -->
             <div class="details-container">
                 <div class="details-content">
                     <h2 id="proj-title" class="project-title">Solztice</h2>
@@ -370,6 +361,14 @@
                 tech: ["Gemini API", "React", "Spotify API"],
                 media: "Daylist demo.mp4",
                 github: "https://github.com/cala28124-sketch/daylist",
+                demo: "https://devpost.com/software/daylist"
+            },
+            {
+                title: "Blowing off Steam",
+                desc: "A web app that uses steam API to record hours spent on steam and input them into leaderboard with the users friends to encourage less playtime whilest gamifying the experience. ",
+                tech: ["Next.js", "React", "Tailwind css", "Steam API", "Typescript", "Html/CSS", "Javascript"],
+                media: "Daylist demo.mp4",
+                github: "https://github.com/powdermilkjuno/blowingoffsteam",
                 demo: "https://devpost.com/software/daylist"
             },
         ];

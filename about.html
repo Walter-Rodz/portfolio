@@ -89,7 +89,7 @@
             font-weight: 900;
             font-style: italic;
             padding: 6px 16px;
-            margin-top: 0;         
+            margin-top: 0;        
             margin-bottom: 8px;      
             letter-spacing: 1.5px;
             border: 3px solid #000;
@@ -126,37 +126,50 @@
         }
 
         @media (max-width: 992px) {
-            .page-wrapper {
-                flex-direction: column-reverse; 
-                gap: 30px;
+            body {
+                padding: 30px 16px;
+                overflow-y: auto;
+                align-items: flex-start;
             }
 
-            body {
-                padding: 30px 20px;
-                overflow-y: auto;
+            .page-wrapper {
+                flex-direction: column-reverse; 
+                gap: 25px;
+                width: 100%;
             }
 
             .p5-black-box {
                 width: 100%;
-                padding: 30px 25px;
+                max-width: 100%;
+                padding: 24px 20px;
+                transform: none; 
+                box-shadow: 6px 6px 0px #d90000;
+                box-sizing: border-box;
+            }
+
+            .p5-black-box > * {
+                transform: none; 
             }
 
             .p5-image-box {
                 width: 100%;
-                max-width: 350px;
+                max-width: 100%;
                 min-height: auto;
+                box-shadow: -6px 6px 0px #d90000;
             }
 
             .p5-header {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+                padding: 4px 12px;
             }
 
             .p5-item {
-                font-size: 1rem;
+                font-size: 1.05rem;
             }
 
             .p5-back-btn {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
+                margin-top: 10px;
             }
         }
     </style>
@@ -172,7 +185,9 @@
             <div class="p5-item-container">
                 <div class="p5-header">ABOUT ME</div>
                 <div class="p5-item">
-                    Hi, I'm Walter Rodriguez. I'm an aspiring software engineer with a passion for building intricate, creative applications. I love learning new things every day, especially when it comes to the software I stumble upon. When an app catches my attention, I dive deep into how it works, dissecting how the developers might have built it so I can incorporate those techniques into my own projects. 
+                    Hi, I'm Walter Rodriguez. I'm an aspiring software engineer with a passion for building intricate, creative applications. 
+                    <br><br>
+                    I love learning new things every day, especially when it comes to the software I stumble upon. When an app catches my attention, I dive deep into how it works, dissecting how the developers might have built it so I can incorporate those techniques into my own projects. 
                 </div>
 
                 <a href="index.html" class="p5-back-btn">← BACK TO MAIN MENU</a>

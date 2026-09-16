@@ -31,6 +31,10 @@
             top: 40px;
             left: 4vw;
             z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
         }
 
         .header-title {
@@ -46,6 +50,23 @@
             transform: skewX(-12deg) rotate(-1deg);
             display: inline-block;
             user-select: none;
+        }
+
+        .header-subtitle {
+            background-color: #d80000;
+            color: #fff;
+            padding: 8px 18px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            border: 4px solid #000;
+            box-shadow: 6px 6px 0px #000;
+            transform: skewX(-12deg) rotate(1deg);
+            display: inline-block;
+            letter-spacing: 1px;
+            user-select: none;
+            margin-left: 10px;
         }
 
         .p5-menu {
@@ -131,7 +152,8 @@
                 left: 0;
                 width: 100%;
                 display: flex;
-                justify-content: center;
+                flex-direction: column;
+                align-items: center;
                 margin-bottom: 35px;
             }
 
@@ -142,6 +164,14 @@
                 box-shadow: 6px 6px 0px #000;
                 transform: skewX(-12deg) rotate(-1deg);
                 text-align: center;
+            }
+
+            .header-subtitle {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+                border: 3px solid #000;
+                box-shadow: 4px 4px 0px #000;
+                margin-left: 0;
             }
 
             .p5-menu {
@@ -169,13 +199,14 @@
 <body>
 
     <header class="top-header">
-        <div class="header-title">Walter's Portfolio</div>
+        <div class="header-title">Walter Rodriguez</div>
+        <div class="header-subtitle">Software Engineer and Game Dev</div>
     </header>
 
     <div class="p5-menu">
-        <a href="about.html" class="p5-text-group">ABOUT ME</a>
-        <a href="skills.html" class="p5-text-group">SKILLS</a>
         <a href="project.html" class="p5-text-group">PROJECTS</a>
+        <a href="skills.html" class="p5-text-group">SKILLS</a>
+        <a href="about.html" class="p5-text-group">ABOUT ME</a>
         <a href="contact.html" class="p5-text-group">CONTACT</a>
     </div>
 

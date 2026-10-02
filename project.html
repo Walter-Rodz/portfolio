@@ -13,7 +13,7 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             image-rendering: -webkit-optimize-contrast;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             display: flex;
             flex-direction: column;
@@ -22,7 +22,6 @@
             padding: 16px 4vw 15px 4vw;
             font-family: 'Montserrat', sans-serif;
             color: #fff;
-            overflow: hidden;
             box-sizing: border-box;
         }
 
@@ -30,15 +29,15 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            max-width: 1600px;
-            margin-left: 8vw;
+            max-width: 1700px;
+            margin-left: 4vw;
             z-index: 2;
         }
 
         .page-header {
             width: 100%;
             text-align: left;
-            margin-bottom: 12px;
+            margin-bottom: 20px;
         }
 
         .page-title {
@@ -60,13 +59,13 @@
             justify-content: flex-start;
             align-items: flex-start;
             width: 100%;
-            gap: 65px;
+            gap: 50px;
         }
 
         .left-column {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 24px;
             width: 440px; 
             flex-shrink: 0;
         }
@@ -74,7 +73,7 @@
         .projects-list {
             display: flex;
             flex-direction: column;
-            gap: 18px; 
+            gap: 16px; 
             width: 100%;
         }
 
@@ -84,7 +83,7 @@
             background-color: #fff;
             color: #000;
             border: 3px solid #000;
-            padding: 9px 18px;
+            padding: 11px 18px;
             cursor: pointer;
             text-transform: uppercase;
             font-style: italic;
@@ -115,8 +114,8 @@
         }
 
         .video-container {
-            width: 100%;
-            height: 220px;
+            width: 500px;
+            height: 310px;
             background: #000;
             border: 4px solid #fff;
             box-shadow: 6px 6px 0px #000;
@@ -124,7 +123,6 @@
             overflow: hidden;
             z-index: 3;
             display: block;
-            margin-top: 6px;
         }
 
         .media-display {
@@ -138,16 +136,18 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            flex-grow: 1;
         }
 
         .details-container {
             position: relative;
-            width: 540px;
-            height: 410px;
+            width: 100%;
+            max-width: 680px;
+            min-height: 480px;
             background: #000;
             border: 4px solid #fff;
-            padding: 24px 30px;
-            transform: translate(40px, 0px) skewX(-6deg) rotate(1deg); 
+            padding: 36px 42px;
+            transform: translate(300px, 0px) skewX(-6deg) rotate(1deg); 
             box-shadow: -10px 10px 0px #d80000;
             box-sizing: border-box;
             display: flex;
@@ -161,25 +161,26 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            gap: 20px;
         }
 
         .project-title {
-            font-size: 2.1rem;
+            font-size: 2.4rem;
             text-transform: uppercase;
             font-style: italic;
             margin: 0;
             color: #fff;
             background: #d80000;
             display: inline-block;
-            padding: 4px 14px;
+            padding: 6px 18px;
             transform: rotate(-2deg);
             border: 2.5px solid #fff;
             align-self: flex-start;
         }
 
         .project-description {
-            font-size: 1.05rem;
-            line-height: 1.4;
+            font-size: 1.2rem;
+            line-height: 1.6;
             color: #eee;
             margin: 0;
             font-weight: bold;
@@ -187,7 +188,7 @@
 
         .project-tech {
             display: flex;
-            gap: 7px;
+            gap: 8px;
             flex-wrap: wrap;
             margin: 0;
         }
@@ -195,15 +196,15 @@
         .tech-tag {
             background: #fff;
             color: #000;
-            padding: 4px 10px;
-            font-size: 0.9rem;
+            padding: 5px 12px;
+            font-size: 0.95rem;
             font-weight: 900;
             transform: skewX(-10deg);
         }
 
         .project-links {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             margin: 0;
             flex-wrap: wrap;
         }
@@ -215,8 +216,8 @@
             text-decoration: none;
             font-weight: 900;
             font-style: italic;
-            font-size: 1rem;
-            padding: 7px 16px;
+            font-size: 1.05rem;
+            padding: 9px 20px;
             border: 2.5px solid #fff;
             transform: skewX(-10deg);
             box-shadow: 3px 3px 0px #000;
@@ -232,9 +233,7 @@
         }
 
         .nav-footer {
-            position: absolute;
-            bottom: 15px;
-            left: 4vw;
+            margin-top: 30px;
             z-index: 10;
         }
 
@@ -258,12 +257,9 @@
             color: #fff;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
             body {
                 height: auto;
-                padding: 20px 4vw;
-                justify-content: flex-start;
-                align-items: center;
                 overflow-y: auto;
             }
 
@@ -271,50 +267,20 @@
                 margin-left: 0;
             }
 
-            .page-header {
-                text-align: center;
-                margin-bottom: 16px;
-            }
-
-            .page-title {
-                font-size: 2.2rem;
-                padding: 6px 16px;
-                border: 5px solid #000;
-                box-shadow: 8px 8px 0px #000;
-                transform: skewX(-12deg) rotate(-2deg);
-            }
-
             .main-container {
                 flex-direction: column;
                 align-items: center;
-                gap: 20px;
+                gap: 30px;
             }
 
             .left-column {
                 width: 100%;
-                max-width: 500px;
-                gap: 15px;
+                max-width: 600px;
             }
 
-            .projects-list {
-                flex-direction: row;
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 12px;
-            }
-
-            .project-item {
-                font-size: 1.1rem;
-                padding: 7px 14px;
-                transform: none !important;
-                border: 4px solid #000;
-                box-shadow: 6px 6px 0px #fff;
-            }
-
-            .project-item.active {
-                transform: translateY(-2px) !important;
-                box-shadow: 6px 6px 0px #000;
+            .video-container {
+                height: 280px;
+                transform: none;
             }
 
             .right-section {
@@ -322,66 +288,15 @@
                 align-items: center;
             }
 
-            .video-container {
-                width: 100%;
-                max-width: 500px;
-                height: 220px;
-                border: 5px solid #fff;
-                box-shadow: 8px 8px 0px #000;
-                transform: none;
-            }
-
             .details-container {
                 width: 100%;
-                max-width: 500px;
-                height: auto;
+                max-width: 600px;
                 min-height: auto;
                 transform: none;
-                padding: 20px;
-                border: 5px solid #fff;
-                box-shadow: -12px 14px 0px #d80000;
             }
 
             .details-content {
                 transform: none;
-                gap: 12px;
-            }
-
-            .project-title {
-                font-size: 1.8rem;
-                border: none;
-            }
-
-            .project-description {
-                font-size: 1rem;
-            }
-
-            .tech-tag {
-                font-size: 0.95rem;
-                padding: 5px 12px;
-            }
-
-            .action-btn {
-                font-size: 0.95rem;
-                padding: 7px 16px;
-                border: 3px solid #fff;
-                box-shadow: 4px 4px 0px #000;
-            }
-
-            .nav-footer {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                display: flex;
-                justify-content: center;
-                margin-top: 25px;
-                width: 100%;
-            }
-
-            .back-link {
-                border: 3px solid #fff;
-                font-size: 1.05rem;
-                padding: 10px 20px;
             }
         }
     </style>
@@ -396,10 +311,11 @@
         <div class="main-container">
             <div class="left-column">
                 <div class="projects-list">
-                    <div class="project-item active" onclick="showProject(0, this)">Blowing off Steam</div>
-                    <div class="project-item" onclick="showProject(1, this)">Portfolio site</div>
-                    <div class="project-item" onclick="showProject(2, this)">Daylist</div>
-                    <div class="project-item" onclick="showProject(3, this)">Solztice</div>
+                    <div class="project-item active" onclick="showProject(0, this)">Go Retro With Us</div>
+                    <div class="project-item active" onclick="showProject(1, this)">Blowing off Steam</div>
+                    <div class="project-item" onclick="showProject(2, this)">Portfolio site</div>
+                    <div class="project-item" onclick="showProject(3, this)">Daylist</div>
+                    <div class="project-item" onclick="showProject(4, this)">Solztice</div>
                 </div>
                 <div class="video-container" id="proj-media-container"></div>
             </div>
@@ -417,14 +333,22 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="nav-footer">
-        <a href="index.html" class="back-link">← Back to Main Menu</a>
+        <div class="nav-footer">
+            <a href="index.html" class="back-link">← Back to Main Menu</a>
+        </div>
     </div>
 
     <script>
         const projects = [
+            {
+                title: "Go Retro With Us",
+                desc: "A web app designed to let users view different emulation consoles and allows them to create a collection either by viewing the specs of each console and adding them or using AI to find consoles to add",
+                tech: ["Next.js", "React", "Tailwind css", "Gemini API", "Typescript", "Html/CSS", "Javascript"],
+                media: "Recording 2026-10-02 023148.mp4",
+                github: "https://github.com/christians-create/GoRetroWithUs",
+                demo: "https://devpost.com/software/goretrowithus"
+            },
             {
                 title: "Blowing off Steam",
                 desc: "A web app that uses steam API to record hours spent on steam and input them into leaderboard with the users friends to encourage less playtime whilest gamifying the experience. ",
